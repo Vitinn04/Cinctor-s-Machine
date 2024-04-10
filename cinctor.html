@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cinctor's Machine</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="body">
+  <div>
+    <h1 class="titulo">Cinctor's Machine</h1>
+    <div class="conteudo">
+    Digite um número: <input type="text" id="input_num" /> Selecione a Base do número que você digitou:
+   <select name="base" id="input_base">
+      <option value="10">Decimal</option>
+      <option value="2">Binário</option>
+      <option value="8">Octal</option>
+      <option value="16">Hexadecimal</option>
+    </select>
+    <button onclick="converter()">Converter</button>
+    <br /></div>
+    <div class="container" id="div_mensagem"></div>
+  </div>
+</body>
+
+</html>
+<script>
+  function converter() {
+    var numero = input_num.value;
+    var base = input_base.value;
+
+    var decimal;
+    var binario;
+    var octal;
+    var hexadecimal;
+
+    // Verificar se o número inserido é válido
+    if (!validarEntrada(numero, base)) {
+      div_mensagem.innerHTML = "Entrada inválida. Por favor, insira um número válido para a base selecionada.";
+      return;
+    }
+
+    var devolveDec = parseInt(numero, base);
+
+    if (base == "10") {
+      binario = devolveDec.toString(2);
+      octal = devolveDec.toString(8);
+      hexadecimal = devolveDec.toString(16).toUpperCase(); // Converter para maiúsculas
+      div_mensagem.innerHTML = `O valor em Binário é ${binario} <br>
+            O valor em Octal é ${octal} <br>
+            O valor em Hexadecimal é ${hexadecimal} <br>`;
+    }
+    if (base == "2") {
+      decimal = devolveDec.toString(10);
+      octal = devolveDec.toString(8);
+      hexadecimal = devolveDec.toString(16).toUpperCase(); // Converter para maiúsculas
+      div_mensagem.innerHTML = `O valor em Decimal é ${decimal} <br>
+            O valor em Octal é ${octal} <br>
+            O valor em Hexadecimal é ${hexadecimal} <br>`;
+    }
+    if (base == "8") {
+      decimal = devolveDec.toString(10);
+      binario = devolveDec.toString(2);
+      hexadecimal = devolveDec.toString(16).toUpperCase(); // Converter para maiúsculas
+      div_mensagem.innerHTML = `O valor em Decimal é ${decimal} <br>
+            O valor em Binário é ${binario} <br>
+            O valor em Hexadecimal é ${hexadecimal} <br>`;
+    }
+    if (base == "16") {
+      decimal = devolveDec.toString(10);
+      binario = devolveDec.toString(2);
+      octal = devolveDec.toString(8);
+      div_mensagem.innerHTML = `O valor em Decimal é ${decimal} <br>
+            O valor em Binário é ${binario} <br>
+            O valor em Octal é ${octal} <br>`;
+    }
+  }
+
+  // Função para validar a entrada
+  function validarEntrada(numero, base) {
+    if (base === "10") {
+      // Verificar se é um número válido em decimal
+      return !isNaN(numero) && numero.trim() !== "";
+    } else if (base === "2") {
+      // Verificar se é um número binário válido
+      return /^[01]+$/.test(numero);
+    } else if (base === "8") {
+      // Verificar se é um número octal válido
+      return /^[0-7]+$/.test(numero);
+    } else if (base === "16") {
+      // Verificar se é um número hexadecimal válido
+      return /^[0-9A-Fa-f]+$/.test(numero);
+    }
+    return false; // Se a base não for reconhecida, retornar falso
+  }
+</script>

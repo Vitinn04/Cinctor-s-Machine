@@ -1,0 +1,72 @@
+.body {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(230, 243, 255);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+
+}
+
+.container {
+ 
+    width: 100%;
+    max-width: 500px;
+    margin: 20px auto;
+    text-align: center;
+    
+    }
+
+
+
+.titulo {
+    justify-content: center;
+    text-align: center;
+    font-size: 50px;
+    color:rgb(132, 161, 255);
+}
+
+.conteudo {
+    width: 100%;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    
+    
+}
+
+
+input {
+    width: 30%;
+    border: none;
+    
+    padding: 5px;
+    
+    
+}
+
+button {
+    width: 30%;
+   border: none;
+   border-radius: 10px;
+        padding: 10px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(157, 204, 247);
+    font-size: 20px;
+}
+
+
+#div_mensagem {
+
+
+    margin: 20px auto;
+    
+    display: flex;
+    border-radius: 10px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color:rgb(132, 161, 255);
+    color:rgb(255, 255, 255);
+}
